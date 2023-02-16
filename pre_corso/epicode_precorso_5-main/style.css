@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .topbar {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .content {
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    cursor: pointer;
+  }
+
+  .icon ion-icon {
+    font-size: 2em;
+  }
+
+  .icon p {
+    margin: 0;
+  }
+
+  .icon:not(:first-of-type) {
+    height: 16vh;
+  }
+
+  .logo {
+    height: 50%;
+  }
+
+  .search-wrapper {
+    display: flex;
+    height: 50%;
+    width: 30%;
+  }
+
+  .search-wrapper input {
+    width: 100%;
+    padding: 0 1em;
+  }
+
+  .icons-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .top-icon {
+    font-size: 2em;
+    padding: 0 0.5em;
+  }
+
+  .mic-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-btn {
+    padding: 0 0.7em;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+  }
+
+  .thumbnail {
+    width: 33%;
+    height: 33%;
+  }
+
+  .thumbnail img {
+    width: 90%;
+    height: auto;
+  }
+
+  .thumbnail h4 {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .thumbnail p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+
+  .video-info {
+    margin: 0.8em;
+    margin-left: 0;
+    display: flex;
+
+  }
+
+  .video-info img {
+    height: 12%;
+    width: 12%;
+  }
+
+  .description {
+    margin: 0;
+    margin-left: 0.4em;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .description p {
+    color: grey;
+  }

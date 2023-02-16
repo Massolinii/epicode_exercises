@@ -1,0 +1,54 @@
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,600&family=Prata&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1 {
+            font-family: 'Prata', serif;
+            font-size: 64px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        h3 {
+            font-family: 'Prata', serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        h6 {
+            padding: 22px;
+            margin-bottom: 0px;
+            margin-top: 56px;
+            color: white;
+            border-radius: 6px;
+            style="background: linear-gradient(120deg, #ffa683, #ffffff);"
+        }
+        .main-section {
+            padding: 20px;
+        }
+        .image-container{
+            height: 500px;
+            background-image: url('https://www.meteorologiaenred.com/wp-content/uploads/2020/04/Monte-Fuji-1024x660.jpg.webp') ;
+            background-repeat: no-repeat;
+        }
+        .banner{
+            width: 100%;
+        }
+        a {
+            font-weight: 600;
+        }
+        ul{
+            list-style-type: none;
+        }
+        il{
+            padding-top, padding-bottom: 6px;
+            padding-left: 22px;
+            border-bottom-width: 1px;
+            border-bottom-color: #dfdfdf;
+            border-bottom-style: solid;
+        }
+
+       
+</style>

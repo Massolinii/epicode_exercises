@@ -1,0 +1,60 @@
+html body {
+    font-size: 0.8em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nonesteso {
+    width: 50%;
+    margin: auto;
+}
+
+
+header, h1, caption {
+    text-align: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.video {
+    height: 350px;
+    padding-bottom: 10px;
+}
+
+nav {
+    background-color: #fefbf1;
+    border-top: 3px solid #ffd997;
+    color: #004d4d;
+    margin-top: 10px;
+    padding: 0.1rem;
+    font-size: 16px;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+hr {
+    height: 1px;
+    background-color: aquamarine;
+    border: none;
+}
+
+.featured {
+    border-left: 1px solid gold;
+    padding-left: 1em;
+}
+
+.featured b {
+    color: rgb(255, 115, 0);
+}
+
+a {
+    color: rgb(127, 204, 255);
+}
+
+.caption {
+    text-align: center;
+    color: grey;
+}
