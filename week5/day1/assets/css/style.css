@@ -245,12 +245,18 @@ footer a {
     }
 
     article p:first-of-type::after {
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png');
-        background-size: 50px 50px;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 55px;
         display: block;
-        width: 50px; 
-        height: 50px;
+        width: 60px; 
+        height: 60px;
         content:"";
+        margin-top: 20px;
+        padding: 5px;
+        border:rgb(22, 158, 189) solid 4px;
+        outline: rgb(197, 34, 135) solid 4px;
     }
 
     iframe, iframe+section {
