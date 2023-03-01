@@ -1,0 +1,75 @@
+body {
+    color:#742305;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.card {
+    height: 400px;
+    width: 300px;
+    background-color: #fbf7e3;
+    border-radius: 20%;
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    height: 70%;
+    object-fit: cover;
+}
+
+.cardContent {
+    padding: 0 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 2em;
+}
+
+.card button {
+    background-color: #f3df85;
+    border-radius: 5%;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+    color:#742305;
+}
+
+.addToCart {
+    align-self: center;
+    width: 70%;
+    margin-top: 1.5em;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cardInfo h3, p {
+    margin: 0;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.price p {
+    margin: 0;
+    font-size: 20px;
+}
