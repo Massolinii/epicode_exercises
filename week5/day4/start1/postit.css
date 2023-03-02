@@ -1,0 +1,81 @@
+body {
+  font-family: "Indie Flower", cursive;
+  background-image: url(abstract-blur-hotel-interior.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#blackboard {
+  background-color: rgb(170, 170, 170);
+  border: 10px solid rgb(165, 124, 47);
+  outline: 6px solid rgb(138, 73, 30);
+  margin: 20px auto;
+  height: auto;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+}
+
+.postit {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.6s ;
+  position:initial;
+}
+
+.postit h3 {
+  margin-top: 0;
+  font-size: 40px;
+}
+
+.postit p {
+  margin-top: 10%;
+  font-size: 25px;
+}
+
+.postit:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  transform: translateY(-10px) rotate(0) scale(1.2);
+}
+
+.postit:hover h3 {
+  font-size: 45px; 
+}
+
+.postit:hover p {
+  font-size: 30px; 
+}
+
+/* Aumenta GRADUALMENTE la dimensione del testo durante l'hover */
+.postit h3,
+.postit p {
+  transition: font-size 0.6s ease;
+}
+
+.giallo {
+  background-color: #f9e784;
+  border: 2px solid #ffe555;
+  transform: rotate(7deg);
+}
+
+.viola {
+  background-color: #cfb0d8;
+  border: 2px solid #c597d1;
+  transform: rotate(-4deg);
+}
+
+.verde {
+  background-color: #b0d8b3;
+  border: 2px solid #8bd390;
+  transform: rotate(3deg);
+}
