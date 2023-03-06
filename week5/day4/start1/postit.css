@@ -45,7 +45,7 @@ body {
 
 .postit:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-  transform: translateY(-10px) rotate(0) scale(1.2);
+  transform: translateY(-10px) rotate(0) scale(1.2) !important;
 }
 
 .postit:hover h3 {
@@ -65,17 +65,17 @@ body {
 .giallo {
   background-color: #f9e784;
   border: 2px solid #ffe555;
-  transform: rotate(7deg);
+  /*transform: rotate(7deg);*/
 }
 
 .viola {
   background-color: #cfb0d8;
   border: 2px solid #c597d1;
-  transform: rotate(-4deg);
+  /*transform: rotate(-4deg);*/
 }
 
 .verde {
   background-color: #b0d8b3;
   border: 2px solid #8bd390;
-  transform: rotate(3deg);
+  /*transform: rotate(3deg);*/
 }

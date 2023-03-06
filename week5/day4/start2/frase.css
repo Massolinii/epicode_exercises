@@ -23,16 +23,17 @@ body {
 
 .parole {
   display: inline-block;
-  overflow: hidden;
   position: relative;
+  width: 150px;
 }
 
 .parole i {
   display: inline-block;
   color: rgb(38, 38, 173);
   opacity: 0;
-  transform: translateY(-100%);
-  position: static;
+  transform: translateY(0%);
+  position: absolute;
+  bottom: -3px
   /* Posizion Absolute non funziona */
 }
 
@@ -59,14 +60,14 @@ body {
     }
 }
 
-.parole i:nth-child(1) {
-    animation: rotateWords 9s ease 0s infinite;
+.parole i {
+    animation: rotateWords 9s infinite;
   }
   
   .parole i:nth-child(2) {
-    animation: rotateWords 9s ease 3s infinite;
+    animation-delay: 3s;
   }
   
   .parole i:nth-child(3) {
-    animation: rotateWords 9s ease 6s infinite;
+    animation-delay: 6s;
   }
