@@ -1,0 +1,51 @@
+@import "./partials/_reset";
+@import "./partials/_button";
+@import "./partials/_mixin";
+@import "./partials/_variables";
+@import "./partials/_animations";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+html, body {
+    @include totalWidth;
+    background-color: $backgroundColor;
+    color: $textColor;
+    font-family: $mainFontFamily;
+}
+
+header, main, .container {
+    width: 100%;
+}
+
+header, .container {
+    @include spacings('block', $sm, $sm)
+}
+
+#hero {
+    h1 {
+        @include titleBig;
+        @include spacings('block', $normal, $md);
+        width: 100%;
+    }
+    
+    p {
+        width: 60%;
+        @include spacings('block', $normal, $md)
+    }
+    
+    #btnGroup {
+        #first {
+            @include btnAll;
+            background-color: $buttonColor1;
+        }
+        #second {
+            @include btnAll;
+            background-color: $buttonColor2;
+        }
+        #third {
+            @include btnAll;
+            background-color: $buttonColor3;
+        }
+    }
+}
+

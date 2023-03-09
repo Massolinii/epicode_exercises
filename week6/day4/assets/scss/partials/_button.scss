@@ -1,0 +1,5 @@
+@mixin btnAll {
+    @include spacings('block', $sm, $sm);
+    border-radius: 2em;
+    border: 1px solid whitesmoke;
+}
