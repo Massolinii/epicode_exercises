@@ -1,0 +1,14 @@
+.card-img-top {
+    object-fit: cover;
+    height: 500px !important;
+  }
+
+#title {
+margin: 1em;
+margin-left: 1em;
+border: 2px solid grey;
+}
+
+#backgroundBooks {
+    background-image: url("/assets/bg/background.jpg") !important;
+}

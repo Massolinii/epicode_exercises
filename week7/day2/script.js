@@ -27,17 +27,17 @@ removeButton.addEventListener("click", function () {
 /* Esercizio 2 */
 
 if (sessionStorage.getItem("timePassed")) {
-    var timePassed = sessionStorage.getItem("timePassed");
-  } else {
-    var timePassed = 0;
-  }
+  var timePassed = sessionStorage.getItem("timePassed");
+} else {
+  var timePassed = 0;
+}
 
-  var counterElement = document.getElementById("counter");
+var counterElement = document.getElementById("counter");
 
-  function addTime() {
-    timePassed++;
-    sessionStorage.setItem("timePassed", timePassed);
-    counterElement.textContent = timePassed;
-  }
+function addTime() {
+  timePassed++;
+  sessionStorage.setItem("timePassed", timePassed);
+  counterElement.textContent = timePassed;
+}
 
-  setInterval(addTime, 1000);
+setInterval(addTime, 1000);
