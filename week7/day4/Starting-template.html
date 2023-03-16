@@ -159,6 +159,12 @@
               >Load Secondary Images</a
             >
           </p>
+          <div class="input-group">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search for any topic!">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -619,8 +625,7 @@
 
     <script>
       const ALBUM_URL = "https://api.pexels.com/v1/search?query=Kitten";
-      const SECONDARY_ALBUM_URL =
-        "https://api.pexels.com/v1/search?query=Puppy";
+      const SECONDARY_ALBUM_URL = "https://api.pexels.com/v1/search?query=Puppy";
 
       const displayPhotos = (photos) => {
         const container = document.querySelector(".album .container .row");
@@ -642,7 +647,7 @@
             <a href="${photo.url}" target="_blank" class="btn btn-sm btn-outline-secondary">View</a>
             <button type="button" class="btn btn-sm btn-outline-secondary" data-hide>Hide</button>
           </div>
-          <small class="text-muted">${photo.width} x ${photo.height}</small>
+          <small class="text-muted">${photo.id}</small>
         </div>
       </div>
     `;
@@ -670,7 +675,7 @@
           })
           .catch((error) => {
             console.error(
-              "Errore durante il recupero dei dati dall'API:",
+              "Something went wrong! :( Problems with API.",
               error
             );
           });
@@ -690,7 +695,7 @@
           })
           .catch((error) => {
             console.error(
-              "Errore durante il recupero dei dati dall'API:",
+              "Something went wrong! :( Problems with API.",
               error
             );
           });
