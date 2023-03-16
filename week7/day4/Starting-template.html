@@ -160,9 +160,20 @@
             >
           </p>
           <div class="input-group">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search for any topic!">
+            <input
+              type="text"
+              class="form-control"
+              id="searchInput"
+              placeholder="Search for any topic!"
+            />
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="searchBtn"
+              >
+                Search
+              </button>
             </div>
           </div>
         </div>
@@ -599,6 +610,7 @@
           </div>
         </div>
       </div>
+      <div id="detailPage" style="display: none"></div>
     </main>
 
     <footer class="text-muted">
@@ -625,7 +637,8 @@
 
     <script>
       const ALBUM_URL = "https://api.pexels.com/v1/search?query=Kitten";
-      const SECONDARY_ALBUM_URL = "https://api.pexels.com/v1/search?query=Puppy";
+      const SECONDARY_ALBUM_URL =
+        "https://api.pexels.com/v1/search?query=Puppy";
 
       const displayPhotos = (photos) => {
         const container = document.querySelector(".album .container .row");
@@ -638,9 +651,11 @@
           const card = document.createElement("div");
           card.className = "card mb-4 shadow-sm";
           card.innerHTML = `
-      <img src="${photo.src.medium}" class="card-img-top" alt="${photo.url}">
+      <a href="#" class="image-link">
+        <img src="${photo.src.medium}" class="card-img-top" alt="${photo.url}">
+      </a>
       <div class="card-body">
-        <h5 class="card-title">${photo.photographer}</h5>
+        <a href="#" class="title-link"><h5 class="card-title">${photo.photographer}</h5></a>
         <p class="card-text">${photo.url}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
@@ -656,13 +671,29 @@
             col.style.display = "none";
           });
 
+          card
+            .querySelector(".image-link")
+            .addEventListener("click", (event) => {
+              event.preventDefault();
+              showDetailPage(photo);
+            });
+
+          card
+            .querySelector(".title-link")
+            .addEventListener("click", (event) => {
+              event.preventDefault();
+              showDetailPage(photo);
+            });
+
           col.appendChild(card);
           container.appendChild(col);
         });
       };
 
-      const getPhotos = function () {
-        fetch(ALBUM_URL, {
+      const getPhotos = function (query) {
+        const url = `https://api.pexels.com/v1/search?query=${query}`;
+
+        fetch(url, {
           method: "GET",
           headers: {
             Authorization:
@@ -675,7 +706,7 @@
           })
           .catch((error) => {
             console.error(
-              "Something went wrong! :( Problems with API.",
+              "Errore durante il recupero dei dati dall'API:",
               error
             );
           });
@@ -694,10 +725,7 @@
             displayPhotos(data.photos);
           })
           .catch((error) => {
-            console.error(
-              "Something went wrong! :( Problems with API.",
-              error
-            );
+            console.error("Something went wrong! :( Problems with API.", error);
           });
       };
 
@@ -712,6 +740,49 @@
         event.preventDefault();
         getPhotos();
       });
+
+      document
+        .querySelector("#searchBtn")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          const searchInput = document.querySelector("#searchInput");
+          const query = searchInput.value.trim();
+          if (query) {
+            getPhotos(query);
+          }
+        });
+
+      function showDetailPage(photo) {
+        const detailPage = document.querySelector("#detailPage");
+        const albumPage = document.querySelector(".album");
+
+        detailPage.innerHTML = `
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-secondary mb-3" id="backBtn">Back</button>
+          <div class="card">
+            <img src="${photo.src.large}" class="card-img-top" alt="${photo.url}">
+            <div class="card-body">
+              <h5 class="card-title">${photo.photographer}</h5>
+              <p class="card-text">
+                <a href="${photo.photographer_url}" target="_blank">Visit photographer's page</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+        detailPage.style.display = "block";
+        albumPage.style.display = "none";
+
+        document.querySelector("#backBtn").addEventListener("click", () => {
+          detailPage.style.display = "none";
+          albumPage.style.display = "block";
+        });
+      }
     </script>
   </body>
 </html>
