@@ -155,7 +155,9 @@
             <a href="#" class="btn btn-primary my-2" id="loadImg"
               >Load Images</a
             >
-            <a href="#" class="btn btn-secondary my-2" id="loadImgSecondary">Load Secondary Images</a>
+            <a href="#" class="btn btn-secondary my-2" id="loadImgSecondary"
+              >Load Secondary Images</a
+            >
           </p>
         </div>
       </section>
@@ -617,7 +619,8 @@
 
     <script>
       const ALBUM_URL = "https://api.pexels.com/v1/search?query=Kitten";
-      const SECONDARY_ALBUM_URL = "https://api.pexels.com/v1/search?query=Puppy";
+      const SECONDARY_ALBUM_URL =
+        "https://api.pexels.com/v1/search?query=Puppy";
 
       const displayPhotos = (photos) => {
         const container = document.querySelector(".album .container .row");
@@ -627,23 +630,28 @@
           const col = document.createElement("div");
           col.className = "col-md-4";
 
-          const card = `
-      <div class="card mb-4 shadow-sm">
-        <img src="${photo.src.medium}" class="card-img-top" alt="${photo.url}">
-        <div class="card-body">
-          <h5 class="card-title">${photo.photographer}</h5>
-          <p class="card-text">${photo.url}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href="${photo.url}" target="_blank" class="btn btn-sm btn-outline-secondary">View</a>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Hide</button>
-            </div>
-            <small class="text-muted">${photo.width} x ${photo.height}</small>
+          const card = document.createElement("div");
+          card.className = "card mb-4 shadow-sm";
+          card.innerHTML = `
+      <img src="${photo.src.medium}" class="card-img-top" alt="${photo.url}">
+      <div class="card-body">
+        <h5 class="card-title">${photo.photographer}</h5>
+        <p class="card-text">${photo.url}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a href="${photo.url}" target="_blank" class="btn btn-sm btn-outline-secondary">View</a>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-hide>Hide</button>
           </div>
+          <small class="text-muted">${photo.width} x ${photo.height}</small>
         </div>
       </div>
     `;
-          col.innerHTML = card;
+
+          card.querySelector("[data-hide]").addEventListener("click", () => {
+            col.style.display = "none";
+          });
+
+          col.appendChild(card);
           container.appendChild(col);
         });
       };
@@ -669,31 +677,36 @@
       };
 
       const getSecondaryPhotos = function () {
-  fetch(SECONDARY_ALBUM_URL, {
-    method: "GET",
-    headers: {
-      Authorization: "9ugKQiNoVWCOKpqnKNvzsmVtnnaJfzgxhyfBbPG2PscZu4xWl24CCOhZ",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      displayPhotos(data.photos);
-    })
-    .catch((error) => {
-      console.error("Errore durante il recupero dei dati dall'API:", error);
-    });
-};
+        fetch(SECONDARY_ALBUM_URL, {
+          method: "GET",
+          headers: {
+            Authorization:
+              "9ugKQiNoVWCOKpqnKNvzsmVtnnaJfzgxhyfBbPG2PscZu4xWl24CCOhZ",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            displayPhotos(data.photos);
+          })
+          .catch((error) => {
+            console.error(
+              "Errore durante il recupero dei dati dall'API:",
+              error
+            );
+          });
+      };
 
-document.querySelector("#loadImgSecondary").addEventListener("click", (event) => {
-  event.preventDefault();
-  getSecondaryPhotos();
-});
+      document
+        .querySelector("#loadImgSecondary")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          getSecondaryPhotos();
+        });
 
       document.querySelector("#loadImg").addEventListener("click", (event) => {
         event.preventDefault();
         getPhotos();
       });
-
     </script>
   </body>
 </html>
