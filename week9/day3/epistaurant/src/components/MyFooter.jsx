@@ -9,13 +9,13 @@ import {
 function MyFooter() {
   return (
     <MDBFooter bgColor='light' className='text-center text-lg-left sticky-footer'>
-      <MDBContainer className='p-4'>
+      <MDBContainer className='p-2'>
         <MDBRow>
-          <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>
+          <MDBCol className='mb-4 mb-md-0 text-center'>
             <h5 className='text-uppercase'>Thanks for coming!</h5>
 
             <p>
-             Unfortunately, we ( me ) are still working on this website. Please comeback once it is finished!
+             Unfortunately, we  ( me ) are still working on this website. Please comeback once it is finished!
             </p>
           </MDBCol>
         </MDBRow>
