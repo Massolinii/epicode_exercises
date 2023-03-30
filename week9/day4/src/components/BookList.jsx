@@ -53,7 +53,7 @@ const BookList = () => {
   return (
     <Container className="mt-3">
         <h3 className="font-weight-light">Select book Category</h3>
-      <Form inline>
+      <Form>
         <Form.Select
           className="mr-2"
           onChange={selectCategory}
@@ -83,12 +83,12 @@ const BookList = () => {
         {filteredBooks.map((book) => {
           return (
             <Col
-              key={book.id}
               xs={6}
               sm={4}
               md={3}
               lg={2}
               className="mb-4 d-flex"
+              key={book.asin}
             >
               <SingleBook book={book} />
             </Col>
