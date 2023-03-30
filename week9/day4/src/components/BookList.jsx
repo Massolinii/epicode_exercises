@@ -13,16 +13,16 @@ const BookList = () => {
   const [selectedCollection, setSelectedCollection] = useState(fantasyColl);
   const [filteredBooks, setFilteredBooks] = useState(fantasyColl);
 
-  const filterBookList = (searchText) => {
-    setSearch(searchText);
+  const filterBookList = (filter) => {
+    setSearch(filter);
     setFilteredBooks(
       selectedCollection.filter((book) =>
-        book.title.toLowerCase().includes(searchText.toLowerCase())
+        book.title.toLowerCase().includes(filter.toLowerCase())
       )
     );
   };
 
-  const handleCollectionChange = (e) => {
+  const selectCategory = (e) => {
     const collection = e.target.value;
 
     switch (collection) {
@@ -56,7 +56,7 @@ const BookList = () => {
       <Form inline>
         <Form.Select
           className="mr-2"
-          onChange={handleCollectionChange}
+          onChange={selectCategory}
           defaultValue="fantasy"
         >
           <option value="fantasy">Fantasy</option>
