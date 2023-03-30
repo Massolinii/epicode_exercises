@@ -52,6 +52,7 @@ const BookList = () => {
 
   return (
     <Container className="mt-3">
+        <h3 className="font-weight-light">Select book Category</h3>
       <Form inline>
         <Form.Select
           className="mr-2"
@@ -64,6 +65,10 @@ const BookList = () => {
           <option value="romance">Romance</option>
           <option value="scifi">Sci-fi</option>
         </Form.Select>
+
+        <br />
+
+        <h4>Search for name:</h4>
         <FormControl
           type="text"
           placeholder="Search books"
@@ -71,6 +76,9 @@ const BookList = () => {
           onChange={(e) => filterBookList(e.target.value)}
         />
       </Form>
+
+        <br />
+
       <Row className="justify-content-evenly align-items-stretch mt-3">
         {filteredBooks.map((book) => {
           return (
