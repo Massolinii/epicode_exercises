@@ -44,11 +44,13 @@ class CommentArea extends Component {
     return (
       <ListGroup>
         {this.state.comments.map((comment) => {
-            <ListGroup.Item key={comment._id}>{comment.comment}Prova</ListGroup.Item>
+          return (
+            <ListGroup.Item key={comment._id}>{comment.comment}</ListGroup.Item>
+          );
         })}
       </ListGroup>
-    );
-  }
+    );
+  }
 }
 
 export default CommentArea;
