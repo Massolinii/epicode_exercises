@@ -1,15 +1,14 @@
 import { Component } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
+import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   state = {
-    comments : [],
-  }
-  
-
+    comments: [],
+  };
 
   myAuth =
-"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJhY2RmNzY4MzQzMTAwMTRkZWE3ODYiLCJpYXQiOjE2ODA1MjY4NjMsImV4cCI6MTY4MTczNjQ2M30.FDfgzJ_h12manMK6eSxbniE_d-EdSNZD7Vt6OkDqhKs"
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJhY2RmNzY4MzQzMTAwMTRkZWE3ODYiLCJpYXQiOjE2ODA1MjY4NjMsImV4cCI6MTY4MTczNjQ2M30.FDfgzJ_h12manMK6eSxbniE_d-EdSNZD7Vt6OkDqhKs";
   myUrl = "https://striveschool-api.herokuapp.com/api/comments/";
 
   getComments = async (elementId) => {
@@ -21,12 +20,13 @@ class CommentArea extends Component {
       });
       if (response.ok) {
         let myComments = await response.json();
-        if (myComments) {        
-          
-          this.setState({ comments: myComments }, () => { console.log(this.state.comments) })
-            
+        if (myComments) {
+          this.setState({ comments: myComments }, () => {
+            console.log(this.state.comments);
+          });
+
           console.log(this.state.comments);
-          console.log(myComments)
+          console.log(myComments);
         }
       } else {
         console.log("ERROR : Something went wrong in the API call");
@@ -42,15 +42,20 @@ class CommentArea extends Component {
 
   render() {
     return (
-      <ListGroup>
-        {this.state.comments.map((comment) => {
-          return (
-            <ListGroup.Item key={comment._id}>{comment.comment}</ListGroup.Item>
-          );
-        })}
-      </ListGroup>
-    );
-  }
+      <div>
+        <ListGroup>
+          {this.state.comments.map((comment) => {
+            return (
+              <ListGroup.Item key={comment._id}>
+                {comment.comment}
+              </ListGroup.Item>
+            );
+          })}
+        </ListGroup>
+        <AddComment />
+      </div>
+    );
+  }
 }
 
 export default CommentArea;

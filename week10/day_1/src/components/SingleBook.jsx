@@ -16,7 +16,6 @@ class SingleBook extends Component {
         className={`bgCard h-100 d-flex flex-column ${
           selected ? "border border-danger" : ""
         }`}
-        onClick={() => this.setState({ selected: !selected })}
       >
         <Card.Img
           variant="top"
@@ -24,6 +23,7 @@ class SingleBook extends Component {
           alt={book.title}
           className="flex-grow-1"
           key={book.asin}
+          onClick={() => this.setState({ selected: !selected })}
         />
         <Card.Body className="d-flex flex-column p-1 pt-3">
           <Card.Title className="fs-6">{book.title}</Card.Title>
