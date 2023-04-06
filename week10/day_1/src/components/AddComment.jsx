@@ -1,11 +1,15 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+
 const API_URL = "https://striveschool-api.herokuapp.com/api/comments/";
 
-const AddComment = ({ asin }) => {
-  const [comment, setComment] = useState("");
-  const [rate, setRate] = useState(5);
+const AddComment = ({ bookAsin }) => {
+  const [comment, setComment] = useState({
+    comment: "",
+    rate: 1,
+    elementId: bookAsin,
+  });
 
   const postComment = async (e) => {
     e.preventDefault();
@@ -17,12 +21,15 @@ const AddComment = ({ asin }) => {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJhZDA4YjY4MzQzMTAwMTRkZWE3OGQiLCJpYXQiOjE2ODA1Mjc0OTksImV4cCI6MTY4MTczNzA5OX0.Zg-_qRAESiz64rLknV3mP89OJYAHFfGo8EY6TkaugrU",
         },
-        body: JSON.stringify({ comment, rate, elementId: asin }),
+        body: JSON.stringify(comment),
       });
       if (response.ok) {
         alert("Comment successfully sent!");
-        setComment("");
-        setRate(5);
+        setComment({
+          comment: "",
+          rate: 1,
+          elementId: bookAsin,
+        });
       } else {
         console.log("error");
         alert("Comment was NOT sent.");
@@ -40,8 +47,8 @@ const AddComment = ({ asin }) => {
         <Form.Control
           type="text"
           placeholder="Enter your comment"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          value={comment.comment}
+          onChange={(e) => setComment({ ...comment, comment: e.target.value })}
         />
       </Form.Group>
 
@@ -52,10 +59,11 @@ const AddComment = ({ asin }) => {
           min={0}
           max={5}
           placeholder="0 - 5"
-          onChange={(e) => setRate(e.target.value)}
-          value={rate}
+          value={comment.rate}
+          onChange={(e) => setComment({ ...comment, rate: e.target.value })}
         />
       </Form.Group>
+
       <Button variant="primary" type="submit">
         Comment
       </Button>

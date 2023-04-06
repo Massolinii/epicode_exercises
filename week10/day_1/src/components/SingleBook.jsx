@@ -21,7 +21,6 @@ class SingleBook extends Component {
           variant="top"
           src={book.img}
           alt={book.title}
-          className="flex-grow-1"
           key={book.asin}
           onClick={() => this.setState({ selected: !selected })}
         />
