@@ -30,6 +30,9 @@ const FavouriteCompanies = () => {
         })}
       </ul>
       {console.log(favContent)}
+      <Link to="/" id="home-link">
+        <Button className="mt-5">Home</Button>
+      </Link>
     </div>
   );
 };
