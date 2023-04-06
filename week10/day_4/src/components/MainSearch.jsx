@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Job from "./Job";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
