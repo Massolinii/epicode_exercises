@@ -15,6 +15,7 @@ const FavouriteCompanies = () => {
             <li key={favContent[i]}>
               <Link to={`/${company}`}>{company}</Link>
               <Button
+                className="m-2"
                 color="danger"
                 onClick={() => {
                   dispatch({
@@ -31,7 +32,7 @@ const FavouriteCompanies = () => {
       </ul>
       {console.log(favContent)}
       <Link to="/" id="home-link">
-        <Button className="mt-5">Home</Button>
+        <Button className="m-4">Home</Button>
       </Link>
     </div>
   );
