@@ -3,13 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { fetchCompanies } from "../redux/actions/fetch";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CompanySearchResults = () => {
   const params = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchCompanies(params.companyName);
+    dispatch(fetchCompanies(params.companyName));
     console.log(params.companyName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
